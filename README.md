@@ -53,6 +53,18 @@
 
 访问 [volume-interaction-lab.pages.dev](https://volume-interaction-lab.pages.dev/) 即可体验。
 
+<div align="center">
+
+<a href="https://volume-interaction-lab.pages.dev/">
+<img alt="扫码体验在线原型" src="./docs/assets/readme/live-demo-qr.png" width="220" />
+</a>
+
+<br />
+
+<sub>扫码打开在线交互原型</sub>
+
+</div>
+
 - **桌面端**：以 375 × 812 的手机画布展示，视口高度不足时可上下滚动。
 - **移动端**：直接拖动滑杆或三维手柄，建议依次尝试三种方案进行对比。
 - **说明**：项目仅使用 Mock 数据，不会创建真实订单、支付或传输个人信息。
