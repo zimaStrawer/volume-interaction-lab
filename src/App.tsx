@@ -55,14 +55,21 @@ function StaticSwitch() {
   );
 }
 
-function CardHeader() {
+function CardHeader({ showSizeHint = false }: { showSizeHint?: boolean }) {
   return (
-    <div className="card-header">
-      <h2>体积/规格</h2>
-      <div className="detail-setting">
-        <span>详细尺寸</span>
-        <StaticSwitch />
+    <div className={`card-header${showSizeHint ? ' card-header-with-hint' : ''}`}>
+      <div className="card-header-row">
+        <h2>体积/规格</h2>
+        <div className="detail-setting">
+          <span>详细尺寸</span>
+          <StaticSwitch />
+        </div>
       </div>
+      {showSizeHint ? (
+        <p className="size-limit-hint">
+          物品尺寸<span>三边之和在150厘米内</span>可正常配送
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -186,7 +193,7 @@ function SliderCard({ volume, tickPosition, onChange }: {
 }) {
   return (
     <section className="volume-card slider-card">
-      <CardHeader />
+      <CardHeader showSizeHint />
       <ReferenceIllustration volume={volume} />
       <div className={`sliders sliders-${tickPosition}`}>
         {AXES.map(({ key, label }) => (
@@ -546,7 +553,7 @@ export function App() {
 
   return (
     <main className="stage">
-      <div className="device-shell">
+      <div className={`device-shell ${mode < 2 ? 'mode-slider' : 'mode-axis'}`}>
         <StatusBar />
         <header className="screen-title">
           <h1>{MODES[mode].title}</h1>
